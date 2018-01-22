@@ -1,0 +1,6 @@
+host: https://www.youtube.com
+port: 9090
+admin_port: 8383
+timeout: 2000
+auto: true
+database: ':memory:'
