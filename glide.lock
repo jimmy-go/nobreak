@@ -1,12 +1,14 @@
 hash: 679d753b995d12dc7983c8e518b8c82c36fcea4d63d094dc7b0fd15f7de7450a
-updated: 2018-01-20T21:00:14.464592-06:00
+updated: 2018-01-29T20:21:05.978395-06:00
 imports:
 - name: github.com/golang/glog
   version: 23def4e6c14b4da8ac2ed8007337bc5eb5007998
 - name: github.com/jmoiron/sqlx
-  version: de8647470aafe4854c976707c431dbe1eb2822c6
+  version: 05cef0741ade10ca668982355b3f3f0bcf0ff0a8
+  subpackages:
+  - reflectx
 - name: github.com/mattn/go-sqlite3
-  version: 6c771bb9887719704b210e87e934f08be014bdb1
+  version: a35b097634ab3a42fac3f7a1c5ed1f898d5cdd5f
 - name: gopkg.in/yaml.v2
   version: d670f9405373e636a5a2765eea47fac0c9bc91a4
 testImports: []

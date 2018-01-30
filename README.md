@@ -1,5 +1,9 @@
 ## NoBreak cache server for third parties services with intermitent uptimes.
 
+<p align="center">
+    <img src="logo.png" width="200" />
+</p>
+
 [![License MIT](https://img.shields.io/npm/l/express.svg)](http://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/jimmy-go/nobreak.svg?branch=master)](https://travis-ci.org/jimmy-go/nobreak)
 [![Go Report Card](https://goreportcard.com/badge/github.com/jimmy-go/nobreak)](https://goreportcard.com/report/github.com/jimmy-go/nobreak)
@@ -11,12 +15,42 @@
 go get gopkg.in/jimmy-go/nobreak.v0
 ```
 
-
 ### Usage:
 
-`nobreak -config=_examples/youtube.yml`
+```
+nobreak -config=$PWD/_examples/youtube.yml
+```
 
+#### Config file contents:
 
+```
+# Target host.
+host: https://www.youtube.com
+
+# Listen port.
+port: 9090
+
+# Port for admin configuration dashboard (WIP).
+admin_port: 8383
+
+# Http client timeout in milliseconds.
+timeout: 2000
+
+# Auto flag for automatic cache return.
+auto: true
+
+# Database connection url for sqlite3. If empty in memory will be used.
+database: ':memory:'
+
+# Enable tls server.
+tls_enabled: false
+
+# TLS cert pem file.
+tls_cert: 'none'
+
+# TLS key pem file.
+tls_key: 'none'
+```
 
 ### License:
 
