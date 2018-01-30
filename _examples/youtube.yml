@@ -1,0 +1,26 @@
+# Target host.
+host: https://www.youtube.com
+
+# Listen port.
+port: 9090
+
+# Port for admin configuration dashboard (WIP).
+admin_port: 8383
+
+# Http client timeout in milliseconds.
+timeout: 2000
+
+# Auto flag for automatic cache return.
+auto: true
+
+# Database connection url for sqlite3. If empty in memory will be used.
+database: ':memory:'
+
+# Enable tls server.
+tls_enabled: false
+
+# TLS cert pem file.
+tls_cert: 'none'
+
+# TLS key pem file.
+tls_key: 'none'
