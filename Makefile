@@ -10,7 +10,7 @@ help:
 
 install:
 	@echo "Make: Install"
-	glide up
+	./scripts/container.sh scripts/install.sh
 
 .PHONY: test
 test:
