@@ -2,6 +2,8 @@
 help:
 	@echo "Available commands:"
 	@echo "make install			Install dependencies."
+	@echo "make run			Run inside container."
+	@echo "make build			Build binary."
 	@echo "make test			Run tests."
 	@echo "make coverage			Show coverage in html."
 	@echo "make clean			Clean build files."
@@ -18,6 +20,14 @@ test:
 coverage:
 	@echo "Make: Coverage"
 	./scripts/coverage.sh
+
+run:
+	@echo "Make: Run"
+	./scripts/container.sh scripts/run.sh
+
+build:
+	@echo "Make: Build"
+	./scripts/container.sh scripts/build_amd64.sh
 
 clean:
 	@echo "Make: Clean"
