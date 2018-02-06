@@ -14,7 +14,7 @@ var (
 
 func main() {
 	flag.Parse()
-	log.Printf("STARTING NO-BREAK")
+	log.Printf("Starting NoBreak: %s", *configFile)
 	log.SetFlags(log.Lshortfile | log.LstdFlags)
 	nb, err := nobreak.New(*configFile)
 	if err != nil {

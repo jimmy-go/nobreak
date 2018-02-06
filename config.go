@@ -1,6 +1,7 @@
 package nobreak
 
 import (
+	"errors"
 	"io/ioutil"
 	"os"
 
@@ -39,6 +40,9 @@ type Config struct {
 
 // LoadConfig load and parses yaml file.
 func LoadConfig(file string) (*Config, error) {
+	if file == "" {
+		return nil, errors.New("empty filename")
+	}
 	f, err := os.Open(file)
 	if err != nil {
 		return nil, err

@@ -1,6 +1,7 @@
 package nobreak
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"net/url"
@@ -30,9 +31,17 @@ func Handler(c *Config) http.HandlerFunc {
 			log.Printf("Parse : err [%s]", err)
 			return
 		}
-		s := u.Scheme + "://" + u.Host + r.RequestURI
-		key := hashURL(r.Method, s)
-		req, err := http.NewRequest(r.Method, s, r.Body)
+
+		targetURL := fmt.Sprintf("%s://%s/%s", u.Scheme, u.Host, r.RequestURI)
+
+		buf, key, err := HashRequest(u.Scheme, r)
+		if err != nil {
+			log.Printf("NewRequest : err [%s]", err)
+			return
+		}
+		log.Printf("Handler : target url [%s] key [%s]", targetURL, key)
+
+		req, err := http.NewRequest(r.Method, targetURL, buf)
 		if err != nil {
 			log.Printf("NewRequest : err [%s]", err)
 			return
@@ -76,9 +85,4 @@ func copyHeader(dst, src http.Header) error {
 		dst.Set(k, v[0])
 	}
 	return nil
-}
-
-func hashURL(method, uri string) string {
-	// TODO;
-	return method + uri
 }

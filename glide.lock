@@ -1,5 +1,5 @@
-hash: 679d753b995d12dc7983c8e518b8c82c36fcea4d63d094dc7b0fd15f7de7450a
-updated: 2018-01-29T20:21:05.978395-06:00
+hash: 35d315c559415c677cf5afda832cb3b62ead1233fa25a67b89a44fcf874bc6d2
+updated: 2018-02-02T20:18:58.426917511Z
 imports:
 - name: github.com/golang/glog
   version: 23def4e6c14b4da8ac2ed8007337bc5eb5007998
@@ -8,7 +8,11 @@ imports:
   subpackages:
   - reflectx
 - name: github.com/mattn/go-sqlite3
-  version: a35b097634ab3a42fac3f7a1c5ed1f898d5cdd5f
+  version: cf92a0c6c881ae9db15f8720a7be6439c24b4b7c
 - name: gopkg.in/yaml.v2
   version: d670f9405373e636a5a2765eea47fac0c9bc91a4
-testImports: []
+testImports:
+- name: github.com/stretchr/testify
+  version: 69483b4bd14f5845b5a1e55bca19e954e827f1d0
+  subpackages:
+  - assert
