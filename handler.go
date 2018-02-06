@@ -32,14 +32,14 @@ func Handler(c *Config) http.HandlerFunc {
 			return
 		}
 
-		targetURL := fmt.Sprintf("%s://%s/%s", u.Scheme, u.Host, r.RequestURI)
+		targetURL := fmt.Sprintf("%s://%s%s", u.Scheme, u.Host, r.RequestURI)
 
-		buf, key, err := HashRequest(u.Scheme, r)
+		buf, key, err := HashRequest(c.Host, r)
 		if err != nil {
 			log.Printf("NewRequest : err [%s]", err)
 			return
 		}
-		log.Printf("Handler : target url [%s] key [%s]", targetURL, key)
+		// log.Printf("Handler : target url [%s] key [%s]", targetURL, key)
 
 		req, err := http.NewRequest(r.Method, targetURL, buf)
 		if err != nil {
@@ -53,14 +53,14 @@ func Handler(c *Config) http.HandlerFunc {
 		resp, err := client.Do(req)
 		if err != nil {
 			if err := useCache(db, key, w, req); err != nil {
-				log.Printf("useCache : err [%s] key [%s]", err, key)
+				log.Printf("useCache : err [%s] key [%s] target [%s]", err, key, targetURL)
 			}
 			return
 		}
 		if resp.StatusCode != http.StatusOK {
 			log.Printf("Bad response code [%d] key [%s]", resp.StatusCode, key)
 			if err := useCache(db, key, w, req); err != nil {
-				log.Printf("useCache : err [%s] key [%s]", err, key)
+				log.Printf("useCache : err [%s] key [%s] target [%s]", err, key, targetURL)
 			}
 			return
 		}

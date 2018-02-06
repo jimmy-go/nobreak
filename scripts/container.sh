@@ -9,7 +9,9 @@ IMAGE="nobreak:$VERSION"
 docker build -t $IMAGE -f Dockerfile .
 
 docker run \
-        --rm -t \
+        --rm -ti \
+        -p 9090:9090 \
+        -p 8383:8383 \
         -v $PWD:/go/src/$PKG \
         -w /go/src/$PKG \
         $IMAGE \

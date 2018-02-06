@@ -14,7 +14,7 @@ timeout: 2000
 auto: true
 
 # Database connection url for sqlite3. If empty in memory will be used.
-database: ':memory:'
+database: nobreak_yt.db
 
 # Enable tls server.
 tls_enabled: false
